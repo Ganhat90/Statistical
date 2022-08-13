@@ -1,9 +1,9 @@
-def input_choice(msg,whiteList):
+def input_choice(msg,ChoiceList):
     while True:
         try:
             string = input(msg)
-            if string not in whiteList:
-                print("Không hợp lệ chỉ chấp nhận: ",whiteList)
+            if string not in ChoiceList:
+                print("Không hợp lệ chỉ chấp nhận: ",ChoiceList)
                 continue
         except:
             print("Không hợp lệ")
@@ -11,12 +11,12 @@ def input_choice(msg,whiteList):
         else:
             return string
 
-def input_str(msg,blackList):
+def input_str(msg,NameList):
     while True:
         try:
             string = input(msg)
-            if string in blackList:
-                print("Không hợp lệ vì có kí tự trong: ",blackList)
+            if string in NameList:
+                print("Không hợp lệ vì có kí tự trong: ",NameList)
                 continue
         except:
             print("Không hợp lệ")
@@ -28,8 +28,8 @@ Si_So = int(input("Nhập số học sinh trong lớp: "))
 
 Class_6A1 = []
 
-choiceWhiteList = ['X','x','']
-nameBlackList = ['']
+choiceList = ['X','x','']
+nameList = ['']
 
 for hs in range(Si_So):
   stt = hs + 1
@@ -38,31 +38,31 @@ for hs in range(Si_So):
 
   item = {"STT": stt}
 
-  item["Họ và tên"] = input_str("Nhập tên học sinh: ",nameBlackList)
+  item["Họ và tên"] = input_str("Nhập tên học sinh: ",nameList)
 
-  item["Bóng đá"] = input_choice("Bạn có đăng ký (x) bóng đá: ",choiceWhiteList)
+  item["Bóng đá"] = input_choice("Bạn có đăng ký (x) bóng đá: ",choiceList)
 
-  item["Bóng rổ"] = input_choice("Bạn có đăng ký (x) bóng rổ: ",choiceWhiteList)
+  item["Bóng rổ"] = input_choice("Bạn có đăng ký (x) bóng rổ: ",choiceList)
 
-  item["Võ"] = input_choice("Bạn có đăng ký (x) võ: ",choiceWhiteList)
+  item["Võ"] = input_choice("Bạn có đăng ký (x) võ: ",choiceList)
 
-  item["Cầu lông"] = input_choice("Bạn có đăng ký (x) cầu lông: ",choiceWhiteList)
+  item["Cầu lông"] = input_choice("Bạn có đăng ký (x) cầu lông: ",choiceList)
 
-  item["Yoga"] = input_choice("Bạn có đăng ký (x) yoga: ",choiceWhiteList)
+  item["Yoga"] = input_choice("Bạn có đăng ký (x) yoga: ",choiceList)
 
-  item["Nhịp điệu"] = input_choice("Bạn có đăng ký (x) nhịp điệu: ",choiceWhiteList)
+  item["Nhịp điệu"] = input_choice("Bạn có đăng ký (x) nhịp điệu: ",choiceList)
 
-  item["Dance sport"] = input_choice("Bạn có đăng ký (x) dance sport: ",choiceWhiteList)
+  item["Dance sport"] = input_choice("Bạn có đăng ký (x) dance sport: ",choiceList)
 
-  item["Sáo + NCDT"] = input_choice("Bạn có đăng ký (x) sáo + NCDT: ",choiceWhiteList)
+  item["Sáo + NCDT"] = input_choice("Bạn có đăng ký (x) sáo + NCDT: ",choiceList)
 
-  item["Organ"] = input_choice("Bạn có đăng ký (x) organ: ",choiceWhiteList)
+  item["Organ"] = input_choice("Bạn có đăng ký (x) organ: ",choiceList)
   
-  item["Ghita"] = input_choice("Bạn có đăng ký (x) ghita: ",choiceWhiteList)
+  item["Ghita"] = input_choice("Bạn có đăng ký (x) ghita: ",choiceList)
   
-  item["Mỹ thuật"] = input_choice("Bạn có đăng ký (x) mỹ thuật: ",choiceWhiteList)
+  item["Mỹ thuật"] = input_choice("Bạn có đăng ký (x) mỹ thuật: ",choiceList)
 
-  item["Thanh nhạc"] = input_choice("Bạn có đăng ký (x) thanh nhạc: ",choiceWhiteList)
+  item["Thanh nhạc"] = input_choice("Bạn có đăng ký (x) thanh nhạc: ",choiceList)
 
   Class_6A1.append(item)
 # 1. Thống kê xem có bao bạn có trùng tên, và trùng tên gì. VD: 2 An, 3 Anh, ...
@@ -94,7 +94,6 @@ for i in range(0, len(Class_6A1)):
         if choice == 'x':
           register[keys[j]] += 1
           
-
 for key, value in register.items():
   print(key, ':', value)
 
